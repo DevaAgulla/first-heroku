@@ -10,18 +10,12 @@ import constants as con
 import time
 
 
-options = webdriver.FirefoxOptions()
-options.log.level = "trace"
 
-options.add_argument("-remote-debugging-port=9224")
-options.add_argument("-headless")
-options.add_argument("-disable-gpu")
-options.add_argument("-no-sandbox")
 binary =  "/app/vendor/firefox/firefox"
 
 class moodle(webdriver.Firefox):
-    def __init__(self,firefox_binary,executable_path,options):
-        super(moodle,self).__init__(firefox_binary,executable_path,options)
+    def __init__(self,firefox_binary,executable_path):
+        super(moodle,self).__init__(firefox_binary,executable_path)
 
     def __exit__(self):
         self.close()
@@ -93,7 +87,7 @@ class moodle(webdriver.Firefox):
             
 
 while True:    
-    bot = moodle(firefox_binary=binary,executable_path="/app/vendor/geckodriver/geckodriver",options=options)
+    bot = moodle(firefox_binary=binary,executable_path="/app/vendor/geckodriver/geckodriver")
     bot.login()
     bot.attendance()
     bot.logout()
