@@ -7,14 +7,15 @@ from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 #import time
 
-"""op = webdriver.ChromeOptions()
+op = webdriver.ChromeOptions()
 op.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
 #op.add_argument("-remote-debugging-port=9224")
 op.add_argument("--headless")
-op.add_argument("--disable-dev-sh-usage")
-op.add_argument("--no-sandbox")"""
-
-options = webdriver.FirefoxOptions()
+op.add_argument("--disable-dev-shm-usage")
+op.add_argument("--no-sandbox")
+op.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=op)
+"""options = webdriver.FirefoxOptions()
 options.log.level = "trace"
 options.add_argument("-remote-debugging-port=9224")
 options.add_argument("-headless")
@@ -24,7 +25,7 @@ options.add_argument("-headless")
 binary = FirefoxBinary(os.environ.get('FIREFOX_BIN'))
 
 
-driver = webdriver.Firefox(firefox_binary=binary,executable_path=os.environ.get('GECKODRIVER_PATH'),options=options)
+driver = webdriver.Firefox(firefox_binary=binary,executable_path=os.environ.get('GECKODRIVER_PATH'),options=options)"""
 driver.maximize_window()
 driver.get("http://lms.rgukt.ac.in/login/index.php")
 driver.implicitly_wait(30)
