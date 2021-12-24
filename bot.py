@@ -9,7 +9,7 @@ from email.message import EmailMessage
 import constants as con
 import time
 
-op = webdriver.FirefoxOptions()
+'''op = webdriver.FirefoxOptions()
 	
 # enable trace level for debugging 
 op.log.level = "trace"
@@ -17,13 +17,13 @@ op.log.level = "trace"
 op.add_argument("-remote-debugging-port=9224")
 op.add_argument("-headless")
 op.add_argument("-disable-gpu")
-op.add_argument("-no-sandbox")
+op.add_argument("-no-sandbox")'''
 
 binary = FirefoxBinary(os.environ.get('FIREFOX_BIN'))
 
 class moodle(webdriver.Firefox):
-    def __init__(self,firefox_binary,executable_path,options):
-        super(moodle,self).__init__(firefox_binary,executable_path,options)
+    def __init__(self,firefox_binary,executable_path):
+        super(moodle,self).__init__(firefox_binary,executable_path)
 
     def __exit__(self):
         self.close()
@@ -95,7 +95,7 @@ class moodle(webdriver.Firefox):
             
 
 while True:    
-    bot = moodle(firefox_binary=binary,executable_path=os.environ.get('GECKODRIVER_PATH'),options=op)
+    bot = moodle(firefox_binary=binary,executable_path=os.environ.get('GECKODRIVER_PATH'))
     bot.login()
     bot.attendance()
     bot.logout()
