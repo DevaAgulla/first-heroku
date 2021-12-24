@@ -13,6 +13,7 @@ op.add_argument("--headless")
 op.add_argument("--disable-dev-sh-usage")
 op.add_argument("--no-sandbox")
 driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"),chrome_options=op)
+driver.maximize()
 driver.get("http://lms.rgukt.ac.in/login/index.php")
 driver.implicitly_wait(30)
 #login script
