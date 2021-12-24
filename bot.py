@@ -3,7 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
-from selenium.webdriver.chrome_service import Service
+from selenium.webdriver.chrome.service import Service
 import smtplib
 from email.message import EmailMessage
 import constants as con
