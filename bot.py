@@ -10,7 +10,7 @@ import time
 
 
 options = Options()
-options.binary_location = "/app/vendor/firefox/firefox"
+options.binary_location = r"/app/vendor/firefox/firefox"
 class moodle(webdriver.Firefox):
     def __init__(self,executable_path,options):
         super(moodle,self).__init__(executable_path,options)
@@ -85,7 +85,7 @@ class moodle(webdriver.Firefox):
             
 
 while True:    
-    bot = moodle(executable_path="/app/vendor/geckodriver/geckodriver",options=options)
+    bot = moodle(executable_path=r"/app/vendor/geckodriver/geckodriver",options=options)
     bot.login()
     bot.attendance()
     bot.logout()
