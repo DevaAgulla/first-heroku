@@ -88,8 +88,8 @@ def attendance():
               attendance = driver.find_elements(By.CSS_SELECTOR,".modtype_attendance .aalink")
               if(len(attendance) > 0):
                   attendance[0].click()
-                  #title = driver.find_element(By.TAG_NAME,"h1").text
-                  #print(title)
+                  title = driver.find_element(By.TAG_NAME,"h1").text
+                  print(title)
                   try:
                       save_changes()
                       send_msg()
