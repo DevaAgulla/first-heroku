@@ -11,16 +11,16 @@ import time
 
 op = webdriver.ChromeOptions()
 op.binary_location = os.environ.get("GOOGLE_CHROME-BIN")
-op.add_argument("-remote-debugging-port=9224")
+#op.add_argument("-remote-debugging-port=9224")
 op.add_argument("--headless")
 op.add_argument("--disable-dev-sh-usage")
 op.add_argument("--no-sandbox")
-s = Service(os.environ.get('CHROMEDRIVER_PATH'))
+#s = Service(os.environ.get('CHROMEDRIVER_PATH'))
 #binary = FirefoxBinary(os.environ.get('FIREFOX_BIN'))
 
 class moodle(webdriver.Chrome):
-    def __init__(self,service,chrome_options):
-        super(moodle,self).__init__(service,chrome_options)
+    def __init__(self,executable_path,chrome_options):
+        super(moodle,self).__init__(executable_path,chrome_options)
 
     def __exit__(self):
         self.close()
@@ -92,7 +92,7 @@ class moodle(webdriver.Chrome):
             
 
 while True:    
-    bot = moodle(service=s,chrome_options=op)
+    bot = moodle(executable_path=os.environ.get('CHROMEDRIVER_PATH'),chrome_options=op)
     bot.login()
     bot.attendance()
     bot.logout()
