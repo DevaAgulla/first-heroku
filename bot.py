@@ -3,27 +3,23 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
-from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 import smtplib
 from email.message import EmailMessage
 import constants as con
 import time
 
-'''op = webdriver.FirefoxOptions()
-	
-# enable trace level for debugging 
-op.log.level = "trace"
-
+op = webdriver.ChromeOptions()
+op.binary_location = os.environ.get("GOOGLE_CHROME-BIN")
 op.add_argument("-remote-debugging-port=9224")
-op.add_argument("-headless")
-op.add_argument("-disable-gpu")
-op.add_argument("-no-sandbox")'''
+op.add_argument("--headless")
+op.add_argument("--disable-dev-sh-usage")
+op.add_argument("--no-sandbox")
 
-binary = FirefoxBinary(os.environ.get('FIREFOX_BIN'))
+#binary = FirefoxBinary(os.environ.get('FIREFOX_BIN'))
 
-class moodle(webdriver.Firefox):
-    def __init__(self,firefox_binary,executable_path):
-        super(moodle,self).__init__(firefox_binary,executable_path)
+class moodle(webdriver.Chrome):
+    def __init__(self,executable_path,options):
+        super(moodle,self).__init__(executable_path,options)
 
     def __exit__(self):
         self.close()
@@ -95,7 +91,7 @@ class moodle(webdriver.Firefox):
             
 
 while True:    
-    bot = moodle(firefox_binary=binary,executable_path=os.environ.get('GECKODRIVER_PATH'))
+    bot = moodle(executable_path=os.environ.get('CHROMEDRIVER_PATH'),chrome_options=op)
     bot.login()
     bot.attendance()
     bot.logout()
