@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
+from selenium.webdriver.chrome_service import Service
 import smtplib
 from email.message import EmailMessage
 import constants as con
@@ -14,12 +15,12 @@ op.add_argument("-remote-debugging-port=9224")
 op.add_argument("--headless")
 op.add_argument("--disable-dev-sh-usage")
 op.add_argument("--no-sandbox")
-
+s = Service(os.environ.get('CHROMEDRIVER_PATH'))
 #binary = FirefoxBinary(os.environ.get('FIREFOX_BIN'))
 
 class moodle(webdriver.Chrome):
-    def __init__(self,executable_path,chrome_options):
-        super(moodle,self).__init__(executable_path,chrome_options)
+    def __init__(self,service,chrome_options):
+        super(moodle,self).__init__(service,chrome_options)
 
     def __exit__(self):
         self.close()
@@ -91,7 +92,7 @@ class moodle(webdriver.Chrome):
             
 
 while True:    
-    bot = moodle(executable_path=os.environ.get('CHROMEDRIVER_PATH'),chrome_options=op)
+    bot = moodle(service=s,chrome_options=op)
     bot.login()
     bot.attendance()
     bot.logout()
