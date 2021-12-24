@@ -39,16 +39,17 @@ pswd.send_keys("Ravi*jyothi1")
 #overlay = driver.find_element(By.TAG_NAME,"b")
 wait = WebDriverWait(driver, 20)
 #wait.until(ec.invisibility_of_element_located((By.TAG_NAME,"b")))
-login = wait.until(ec.element_to_be_clickable((By.XPATH,"//*[@id='loginbtn']")))
-#login = driver.find_element(By.XPATH,"//*[@id='loginbtn']")
-while True:
+#login = wait.until(ec.element_to_be_clickable((By.XPATH,"//*[@id='loginbtn']")))
+login = driver.find_element(By.XPATH,"//*[@id='loginbtn']")
+driver.execute_script("arguments[0].click();",login)
+'''while True:
   try:
     login.click()
     print("worked")
     break
   except:
     print("fucked up")
-    continue
+    continue'''
 #login = driver.find_element(By.ID,"loginbtn")
 #login.click()
 print("finished")
