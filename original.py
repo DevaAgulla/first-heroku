@@ -118,6 +118,7 @@ while True:
         exit_code()
     except:
         exit_code()
+    print("finished")
     time.sleep(2000)
 #login = driver.find_element(By.ID,"loginbtn")
 #login.click()
