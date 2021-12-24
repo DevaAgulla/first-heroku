@@ -24,7 +24,7 @@ options.add_argument("-no-sandbox")
 binary = FirefoxBinary(os.environ.get('FIREFOX_BIN'))
 
 
-driver = webdriver.Chrome(firefox_binary=binary,executable_path=os.environ.get('GECKODRIVER_PATH'),options=options)
+driver = webdriver.Firefox(firefox_binary=binary,executable_path=os.environ.get('GECKODRIVER_PATH'),options=options)
 driver.maximize_window()
 driver.get("http://lms.rgukt.ac.in/login/index.php")
 driver.implicitly_wait(30)
