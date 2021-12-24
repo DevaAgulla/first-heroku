@@ -10,7 +10,7 @@ from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 op = webdriver.ChromeOptions()
 op.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
 #op.add_argument("-remote-debugging-port=9224")
-op.add_argument("--headless")
+#op.add_argument("--headless")
 op.add_argument("--disable-dev-shm-usage")
 op.add_argument("--no-sandbox")
 op.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
