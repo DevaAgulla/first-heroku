@@ -19,8 +19,8 @@ op.add_argument("--no-sandbox")
 #binary = FirefoxBinary(os.environ.get('FIREFOX_BIN'))
 
 class moodle(webdriver.Chrome):
-    def __init__(self,executable_path,chrome_options):
-        super(moodle,self).__init__(executable_path,chrome_options)
+    def __init__(self,executable_path,options):
+        super(moodle,self).__init__(executable_path,options)
 
     def __exit__(self):
         self.close()
@@ -92,7 +92,7 @@ class moodle(webdriver.Chrome):
             
 
 while True:    
-    bot = moodle(executable_path=os.environ.get('CHROMEDRIVER_PATH'),chrome_options=op)
+    bot = moodle(executable_path=os.environ.get('CHROMEDRIVER_PATH'),options=op)
     bot.login()
     bot.attendance()
     bot.logout()
