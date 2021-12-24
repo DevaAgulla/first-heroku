@@ -2,14 +2,18 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
+from selenium.webdriver.firefox.options import Options
 import smtplib
 from email.message import EmailMessage
 import constants as con
 import time
 
+
+options = Options()
+options.binary_location = "/app/vendor/firefox/firefox"
 class moodle(webdriver.Firefox):
-    def __init__(self):
-        super(moodle,self).__init__()
+    def __init__(self,executable_path,options):
+        super(moodle,self).__init__(executable_path,options)
 
     def __exit__(self):
         self.close()
@@ -81,7 +85,7 @@ class moodle(webdriver.Firefox):
             
 
 while True:    
-    bot = moodle()
+    bot = moodle(executable_path="/app/vendor/geckodriver/geckodriver",options=options)
     bot.login()
     bot.attendance()
     bot.logout()
