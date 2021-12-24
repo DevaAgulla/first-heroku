@@ -44,8 +44,10 @@ login = wait.until(ec.element_to_be_clickable((By.XPATH,"//*[@id='loginbtn']")))
 while True:
   try:
     login.click()
+    print("worked")
     break
   except:
+    print("fucked up")
     continue
 #login = driver.find_element(By.ID,"loginbtn")
 #login.click()
