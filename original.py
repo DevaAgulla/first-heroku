@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
-#import time
+import time
 
 op = webdriver.ChromeOptions()
 op.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
@@ -88,8 +88,8 @@ def attendance():
               attendance = driver.find_elements(By.CSS_SELECTOR,".modtype_attendance .aalink")
               if(len(attendance) > 0):
                   attendance[0].click()
-                  title = driver.find_element(By.TAG_NAME,"h1").text
-                  print(title)
+                  #title = driver.find_element(By.TAG_NAME,"h1").text
+                  #print(title)
                   try:
                       save_changes()
                       send_msg()
@@ -118,7 +118,7 @@ while True:
         exit_code()
     except:
         exit_code()
-    print("finished")
+    #print("finished")
     time.sleep(2000)
 #login = driver.find_element(By.ID,"loginbtn")
 #login.click()
