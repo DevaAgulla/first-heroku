@@ -51,7 +51,7 @@ def save_changes():
   present = driver.find_elements(By.CLASS_NAME,"form-check-input")
   driver.execute_script("arguments[0].click();",present[0])
   submit = driver.find_element(By.ID,"id_submitbutton")
- driver.execute_script("arguments[0].click();",submit)
+  driver.execute_script("arguments[0].click();",submit)
   
 def dashboard_home():
   dashboard = driver.find_element(By.XPATH,"//*[@id='page-navbar']/nav/ol/li[1]/a")
