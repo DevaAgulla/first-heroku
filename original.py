@@ -47,15 +47,15 @@ driver.execute_script("arguments[0].click();",login)
 
 def save_changes():
   status = driver.find_element(By.CSS_SELECTOR,".statuscol a")
-  status.click()
+  driver.execute_script("arguments[0].click();",status)
   present = driver.find_elements(By.CLASS_NAME,"form-check-input")
-  present[0].click()
+  driver.execute_script("arguments[0].click();",present[0])
   submit = driver.find_element(By.ID,"id_submitbutton")
-  submit.click()
+ driver.execute_script("arguments[0].click();",submit)
   
 def dashboard_home():
   dashboard = driver.find_element(By.XPATH,"//*[@id='page-navbar']/nav/ol/li[1]/a")
-  dashboard.click()  
+  driver.execute_script("arguments[0].click();",dashboard)  
 
   
   
@@ -83,7 +83,7 @@ def attendance():
   for i  in range(0,len(subjects)):
       try:
           subs = driver.find_elements(By.CSS_SELECTOR,".column a")
-          subs[i].click()
+          driver.execute_script("arguments[0].click();",subs[i])
           try:
               attendance = driver.find_elements(By.CSS_SELECTOR,".modtype_attendance .aalink")
               if(len(attendance) > 0):
