@@ -82,7 +82,7 @@ def attendance():
   subjects = driver.find_elements(By.CSS_SELECTOR,".column a")
   for i  in range(0,len(subjects)):
     subs = driver.find_elements(By.CSS_SELECTOR,".column a")
-    subs[12].click()
+    driver.execute_script("arguments[0].click();",subs[12])
     try:
       attendance = driver.find_elements(By.CSS_SELECTOR,".modtype_attendance .aalink")
       if(len(attendance) > 0):
