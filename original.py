@@ -21,7 +21,7 @@ def send_msg(name,subject_name,emailto):
   
 login_list = [
         
-         {"username":"B191843","password":"S@sb191843*#","email":"Sujith.barkam@gmail.com","name":"Sujith"},
+         {"username":"B191843","password":"S@sb191843*#","email":"sujeeth.barkam@gmail.com","name":"Sujith"},
          
          {"username":"B191081","password":"Ravi*jyothi1","email":"devaagulla770@gmail.com","name":"Deva"},
          
@@ -61,6 +61,7 @@ while True:
         month = x.strftime("%B")
         day = x.strftime("%A")
         date = x.strftime("%d")
+        date = int(date)
         url = soup.find("a",{"aria-label":f"Today {day}, {date} {month}"})["href"]
         r = s.post(url)
         soup = BeautifulSoup(r.content,"html.parser")
