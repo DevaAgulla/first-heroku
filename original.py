@@ -35,7 +35,11 @@ login_list = [
          
          {"username":"B191177","password":"Cse.3195","email":"Vempatimeghana1@gmail.com","name":"Meghana"},
          
-         {"username":"B191124","password":"K1vy@2003","email":"Kavyakakkerla24@gmail.com","name":"Kavya"}
+         {"username":"B191124","password":"K1vy@2003","email":"Kavyakakkerla24@gmail.com","name":"Kavya"},
+  
+         {"username":"B191138","password":"Karthik@286","email":"Karthikmethuku286@gmail.com","name":"Karthik"},
+
+         {"username":"B181623","password":"Sudheer*2003","email":"sudheer123kondapuram@gmail.com","name":"B181623"}
          
         ]
 
